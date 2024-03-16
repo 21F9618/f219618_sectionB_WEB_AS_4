@@ -19,10 +19,19 @@ $(document).ready(function() {
         var gender = $('#gender').val();
         var age = $('#age').val();
 
-        if (fullName === '' || email === '' || password === '' || phoneNumber === '' || address === '' || gender === '' || age === '') {
-            alert('Please fill in all fields for Sign Up.');
-            e.preventDefault();
-        }
+
+
+        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (fullName === '' || email === '' || password === '' || phoneNumber === '' || address === '' || gender === '' || age === '') {
+        alert('Please fill all fields for sign Up.');
+        e.preventDefault();
+    } else if (!emailRegex.test(email) || !email.endsWith("gmail.com")) {
+        alert('Please enter a valid Gmail address.');
+        e.preventDefault();
+    }
+
+        
     });
 });
 
